@@ -6,6 +6,8 @@ import {useEffect, useState} from "react";
 function App() {
     const cookies = new Cookies();
 
+    const [access, setAccess] = useState(false)
+    const [accessModal, setAccessModal] = useState(true)
     const [auth, setAuth] = useState(false)
     const [user, setUser] = useState({
         firstname: '',
@@ -13,10 +15,13 @@ function App() {
         mail: '',
         tel: '',
     });
+
     useEffect(() => {
         if (cookies.get('user')) {
             setAuth(true)
             setUser(cookies.get('user').user)
+            setAccess(true)
+            setAccessModal(false)
         }
     }, [])
 
@@ -40,6 +45,19 @@ function App() {
             {
                 modal &&
                 <Modal setUser={setUser} setModal={setModal} setAuth={setAuth}/>
+            }
+            {
+                accessModal &&
+                <div className='access'>
+                    <div>
+                        <span>We use cookies to improve the performance of the site. By staying on our site, you agree to the terms use of cookies. To read our Privacy and Use Policy cookies. <a
+                            href="#">Click here</a>.</span>
+                    </div>
+                    <div className='cookie_btns'>
+                        <button onClick={() => {setAccess(true);setAccessModal(false)}}>Accept all cookes</button>
+                        <button onClick={() => {setAccess(false);setAccessModal(false)}}>Allow nessesary cookies only</button>
+                    </div>
+                </div>
             }
         </div>
     );

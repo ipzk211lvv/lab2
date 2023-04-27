@@ -52,3 +52,41 @@ input {
     font-size: 8px;
     line-height: 1pt;
 }
+
+.access {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 400px;
+
+    padding: 10px;
+    animation: animation2 .7s ease-in-out;
+    background-color: #cea765;
+}
+
+@keyframes animation2 {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.cookie_btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.cookie_btns button {
+    padding: 3px;
+    border: .1pt solid black;
+    background-color: #ecc88c;
+    cursor: pointer;
+}
+
+.cookie_btns button:hover {
+    background-color: #f8daa9;
+}

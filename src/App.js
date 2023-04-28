@@ -44,7 +44,7 @@ function App() {
             }
             {
                 modal &&
-                <Modal setUser={setUser} setModal={setModal} setAuth={setAuth}/>
+                <Modal setUser={setUser} setModal={setModal} setAuth={setAuth} access={access}/>
             }
             {
                 accessModal &&

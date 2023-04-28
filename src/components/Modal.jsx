@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 import '../App.css'
 import Cookies from 'universal-cookie';
 
-const Modal = ({setUser, setModal, setAuth}, props) => {
+const Modal = ({setUser, setModal, setAuth, access}, props) => {
     const cookies = new Cookies();
 
     const register = () => {
-        cookies.set('user', {user: userReg})
+        access && cookies.set('user', {user: userReg})
         setModal(false)
         setAuth(true)
         setUser(userReg)
